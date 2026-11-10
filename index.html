@@ -294,6 +294,61 @@
     }
     .deliver-text p { font-size: 0.8125rem; color: var(--muted); line-height: 1.55; }
 
+    /* ARTICLES / TEARDOWNS */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .article-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s;
+    }
+    .article-card:hover { border-color: var(--border-dark); }
+    .article-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .article-date { font-size: 0.75rem; color: var(--muted-light); }
+    .article-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+    .article-excerpt {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .article-stats {
+      display: flex;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .stat-item {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .stat-item .mono {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .article-link-wrap { margin-top: auto; }
+
     /* PRICING */
     .plans {
       display: grid;
@@ -431,6 +486,7 @@
 <nav>
   <a href="#" class="logo">PriceDossier</a>
   <div class="nav-links">
+    <a href="#teardowns">Teardowns</a>
     <a href="#how">Methodology</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact" class="nav-cta">Get a sample</a>
@@ -590,6 +646,121 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- TEARDOWNS / ARTICLES -->
+<div class="wrap">
+  <div class="section" id="teardowns">
+    <div class="section-kicker">Teardowns & Audits</div>
+    <h2>Real-world SaaS geo-pricing insights</h2>
+    <p class="section-sub">We regularly benchmark public SaaS checkout surfaces using residential exit nodes to track exchange-rate drift, tax overhangs, and global arbitrage risk.</p>
+
+    <div class="articles-grid">
+      <article class="article-card">
+        <div>
+          <div class="article-header">
+            <span class="tag tag-red">Featured Audit</span>
+            <span class="mono article-date">Nov 2026</span>
+          </div>
+          <h3 class="article-title">Asana Global Tier Audit: $10.97 USD Spread Across 5 Markets</h3>
+          <p class="article-excerpt">Proxy inspection reveals an 8.0% over-index premium in Germany driven by hardcoded VAT rounding, alongside a silent 29.8% revenue leakage in Japan due to static currency anchors.</p>
+          <div class="article-stats">
+            <div class="stat-item"><span class="mono">+8.0%</span> DE Overhang</div>
+            <div class="stat-item"><span class="mono">-29.8%</span> JP Drift</div>
+            <div class="stat-item"><span class="mono">-35.9%</span> BR Discount</div>
+          </div>
+        </div>
+        <div class="article-link-wrap">
+          <a href="#asana-audit" class="btn-ghost">View audit snapshot ↓</a>
+        </div>
+      </article>
+
+      <article class="article-card">
+        <div>
+          <div class="article-header">
+            <span class="tag tag-amber">Benchmark</span>
+            <span class="mono article-date">Upcoming</span>
+          </div>
+          <h3 class="article-title">ClickUp vs. Monday.com: European VAT & FX Drift Analysis</h3>
+          <p class="article-excerpt">Benchmarking workspace management pricing across 10 EU and APAC markets to test exchange rate elasticity and billing engine compliance.</p>
+          <div class="article-stats">
+            <div class="stat-item"><span class="mono">10</span> Geos</div>
+            <div class="stat-item"><span class="mono">2</span> Competitors</div>
+            <div class="stat-item"><span class="mono">DOM</span> Inspection</div>
+          </div>
+        </div>
+        <div class="article-link-wrap">
+          <a href="#contact" class="btn-ghost">Request benchmark →</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- ASANA AUDIT SNAPSHOT BLOCK -->
+    <div id="asana-audit" style="margin-top: 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
+      <div class="sample-meta" style="margin-bottom: 1rem;">
+        <span class="sample-id">AUDIT #001 / Asana Advanced Tier / 5-Country Residential Audit</span>
+        <span class="verified"><span class="dot"></span>Verified Exit-IP Logs</span>
+      </div>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Executive Teardown Summary: Asana (Advanced)</h3>
+      <p style="font-size: 0.9375rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.65;">
+        Proxy routing via residential exit nodes (US-CA, GB-LND, DE-FRA, JP-TYO, BR-SP) revealed a <strong>44% total global price dispersion</strong> against Asana's U.S. baseline ($24.99/mo annual).
+      </p>
+      <div class="table-wrap" style="margin-bottom: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>Listed Rate</th>
+              <th>USD Equivalent</th>
+              <th>Delta vs US</th>
+              <th>Root Cause</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="flag">🇺🇸</span>United States</td>
+              <td class="mono">$24.99 / mo</td>
+              <td class="mono">$24.99</td>
+              <td class="delta-ok">—</td>
+              <td><span class="tag tag-green">Baseline</span></td>
+            </tr>
+            <tr>
+              <td><span class="flag">🇩🇪</span>Germany</td>
+              <td class="mono">€24,99 / mo</td>
+              <td class="mono">$26.99</td>
+              <td class="delta-pos">+8.0%</td>
+              <td><span class="tag tag-red">VAT Overhang</span></td>
+            </tr>
+            <tr>
+              <td><span class="flag">🇬🇧</span>United Kingdom</td>
+              <td class="mono">£16.99 / mo</td>
+              <td class="mono">$21.58</td>
+              <td class="delta-neg">-13.7%</td>
+              <td><span class="tag tag-amber">FX Drift</span></td>
+            </tr>
+            <tr>
+              <td><span class="flag">🇯🇵</span>Japan</td>
+              <td class="mono">¥2,700 / mo</td>
+              <td class="mono">$17.55</td>
+              <td class="delta-neg">-29.8%</td>
+              <td><span class="tag tag-amber">Static Anchor</span></td>
+            </tr>
+            <tr>
+              <td><span class="flag">🇧🇷</span>Brazil</td>
+              <td class="mono">R$ 88.99 / mo</td>
+              <td class="mono">$16.02</td>
+              <td class="delta-neg">-35.9%</td>
+              <td><span class="tag tag-green">PPP Discount</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.875rem; color: var(--muted); line-height: 1.6;">
+        <strong>RevOps Insight:</strong> Germany carries an unearned 8.0% premium due to hardcoded EUR (€24,99) tax inclusion, creating friction for European procurement teams. Concurrently, static pricing anchors in Japan and the UK leave substantial ARR on the table as local currencies fluctuate against the USD.
+      </p>
+    </div>
+
   </div>
 </div>
 
